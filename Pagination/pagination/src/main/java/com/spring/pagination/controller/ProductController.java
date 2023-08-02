@@ -37,4 +37,14 @@ public class ProductController {
                                             @PathVariable("max") double max){
         return productService.getProductsByPrice(page, size, min, max);
     }
+
+    @GetMapping("/productsByTime")
+    public List<Product> getProductsByCreatedAtTimeBetween(
+            @RequestParam String startTime,
+            @RequestParam String endTime,
+            @RequestParam(defaultValue = "1") int page,
+            @RequestParam(defaultValue = "5") int size) {
+
+        return productService.getProductsByCreatedAtTimeBetween(startTime, endTime, page, size);
+    }
 }

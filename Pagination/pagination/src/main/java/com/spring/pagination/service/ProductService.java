@@ -46,4 +46,9 @@ public class ProductService {
         Pageable pageable = Pageable.ofSize(size).withPage(page - 1);
         return productRepository.findProductsByPriceBetween(min, max, pageable);
     }
+
+    public List<Product> getProductsByCreatedAtTimeBetween(String startTime, String endTime, int page, int size) {
+        page = (page - 1) * size;
+        return productRepository.getProductByCreatedAtTimeBetweenWithLimit(startTime, endTime, page, size);
+    }
 }

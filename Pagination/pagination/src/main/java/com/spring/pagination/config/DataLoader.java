@@ -6,8 +6,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Component
 @RequiredArgsConstructor
@@ -20,27 +22,27 @@ public class DataLoader implements CommandLineRunner {
 
         List<Product> products = new ArrayList<>();
 
+        Random random = new Random();
+
         // Add 20 sample products to the list
-        products.add(new Product("Product 1", 10.99));
-        products.add(new Product("Product 2", 20.49));
-        products.add(new Product("Product 3", 5.99));
-        products.add(new Product("Product 4", 15.29));
-        products.add(new Product("Product 5", 8.79));
-        products.add(new Product("Product 6", 12.99));
-        products.add(new Product("Product 7", 18.49));
-        products.add(new Product("Product 8", 7.99));
-        products.add(new Product("Product 9", 9.29));
-        products.add(new Product("Product 10", 6.79));
-        products.add(new Product("Product 11", 14.99));
-        products.add(new Product("Product 12", 24.49));
-        products.add(new Product("Product 13", 15.99));
-        products.add(new Product("Product 14", 28.29));
-        products.add(new Product("Product 15", 9.79));
-        products.add(new Product("Product 16", 10.99));
-        products.add(new Product("Product 17", 11.49));
-        products.add(new Product("Product 18", 17.99));
-        products.add(new Product("Product 19", 22.29));
-        products.add(new Product("Product 20", 25.79));
+        for (int i = 1; i <= 20; i++) {
+            // Generate random year between 2020 and 2023
+            int year = random.nextInt(4) + 2020;
+            // Generate random month between 1 and 12
+            int month = random.nextInt(12) + 1;
+            // Generate random day between 1 and 28 (for simplicity, considering all months to have 28 days)
+            int day = random.nextInt(28) + 1;
+            // Generate random hour between 0 and 23
+            int hour = random.nextInt(24);
+            // Generate random minute between 0 and 59
+            int minute = random.nextInt(60);
+            // Generate random second between 0 and 59
+            int second = random.nextInt(60);
+
+            LocalDateTime createdAt = LocalDateTime.of(year, month, day, hour, minute, second);
+            Product product = new Product("Product " + i, (i * 10.0), createdAt);
+            products.add(product);
+        }
 
         productRepository.saveAll(products);
     }
