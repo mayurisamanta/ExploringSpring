@@ -41,4 +41,9 @@ public class ProductService {
 
         return productRepository.findByName(name, pageable);
     }
+
+    public List<Product> getProductsByPrice(int page, int size, double min, double max) {
+        Pageable pageable = Pageable.ofSize(size).withPage(page - 1);
+        return productRepository.findProductsByPriceBetween(min, max, pageable);
+    }
 }

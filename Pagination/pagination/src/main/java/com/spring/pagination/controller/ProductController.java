@@ -29,4 +29,12 @@ public class ProductController {
                                            @PathVariable("name") String name ){
         return productService.getProductsByName(page, size, name);
     }
+
+    @GetMapping("/products/{min}/{max}")
+    public List<Product> getProductsByPrice(@RequestParam(defaultValue = "1") int page,
+                                            @RequestParam(defaultValue = "5") int size,
+                                            @PathVariable("min") double min,
+                                            @PathVariable("max") double max){
+        return productService.getProductsByPrice(page, size, min, max);
+    }
 }
