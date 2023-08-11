@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "4abdb4b3-aceb-4b8a-a7e5-a2d408be7a1a",
+		"name": "Composite Primary Key Using Spring Data JPA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25487517"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8088/song/xyz",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/song/xyz",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"song",
+						"xyz"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8088/song/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"artist\" : \"Arjit singh\",\n    \"name\" : \"xyz\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8088/song/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"song",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8088/song/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"songId\" : {\n        \"artist\" : \"dhawni\",\n        \"name\" : \"xyz\"\n    },\n    \n    \"downloadUrl\" : \"abcde\",\n    \"duration\" : \"3\",\n    \"genre\" : \"abc\",\n    \"rating\" : \"10\",\n    \"releaseDate\" : \"2021-05-03\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8088/song/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"song",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
