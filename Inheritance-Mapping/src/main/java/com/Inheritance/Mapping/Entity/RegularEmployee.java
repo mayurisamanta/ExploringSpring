@@ -11,6 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@DiscriminatorValue("regular_employee")
 public class RegularEmployee extends Employee{
 
     private Integer salary;

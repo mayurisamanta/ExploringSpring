@@ -11,6 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@DiscriminatorValue("contract_employee")
 public class ContractEmployee extends Employee{
 
     private Integer wages_per_hour;
