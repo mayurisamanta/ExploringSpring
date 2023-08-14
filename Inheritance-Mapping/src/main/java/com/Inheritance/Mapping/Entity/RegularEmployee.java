@@ -16,6 +16,7 @@ import lombok.Setter;
 //        @AttributeOverride(name = "id", column = @Column(name = "id")),
 //        @AttributeOverride(name = "name", column = @Column(name = "name"))
 //})
+@PrimaryKeyJoinColumn(name = "ID")
 public class RegularEmployee extends Employee{
 
     private Integer salary;
