@@ -11,7 +11,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@DiscriminatorValue("regular_employee")
+//@DiscriminatorValue("regular_employee")
+@AttributeOverrides({
+        @AttributeOverride(name = "id", column = @Column(name = "id")),
+        @AttributeOverride(name = "name", column = @Column(name = "name"))
+})
 public class RegularEmployee extends Employee{
 
     private Integer salary;
